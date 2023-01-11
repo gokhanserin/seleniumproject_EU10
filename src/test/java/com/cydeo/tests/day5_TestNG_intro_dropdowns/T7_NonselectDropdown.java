@@ -42,7 +42,7 @@ public class T7_NonselectDropdown {
 
             //5. Verify title is “Facebook - Log In or Sign Up”
 
-        String expectedTitle = "Facebook - Log In or Sign Up";
+        String expectedTitle = "Facebook - Giriş Yap veya Kaydol";
         String actualTitle = driver.getTitle();
         Assert.assertEquals(expectedTitle,actualTitle);
 
