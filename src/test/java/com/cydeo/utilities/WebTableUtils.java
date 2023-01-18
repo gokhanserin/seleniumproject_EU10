@@ -50,4 +50,18 @@ public class WebTableUtils {
         Assert.assertEquals(actualOrderDate,expectedOrderDate);
     }
 
+
+    //Method name: getTableGetEmail()
+    //Return type: void
+    //Arg1: WebDriver driver
+    //Arg2: String tableNum
+    //Arg3: String firstName
+
+    public static void getTableGetEmail(WebDriver driver, String tableNum, String firstName){
+
+        WebElement email = driver.findElement(By.xpath("//table[@id='"+tableNum+"']//td[.='"+firstName+"']/following-sibling::td[1]"));
+
+        System.out.println(email.getText());
+    }
+
 }
