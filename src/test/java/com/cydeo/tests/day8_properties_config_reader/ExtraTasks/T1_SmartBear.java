@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class T1_SmartBear {
@@ -49,18 +50,16 @@ public class T1_SmartBear {
 
         //6. Print out count of all the links on landing page
 
+        List<WebElement> allTheLinks = driver.findElements(By.tagName("a"));
 
-        for (int i = 0; i < 8; i++) {
-            WebElement a = driver.findElement(By.tagName("a"));
-            System.out.println("link text = " + a.getText());
-        }
-
-
+        System.out.println("allTheLinks.size() = " + allTheLinks.size());
 
         //7. Print out each link text on this page
 
+        for (WebElement each : allTheLinks) {
+            System.out.println("each.getText() = " + each.getText());
+        }
 
     }
-
 
 }
