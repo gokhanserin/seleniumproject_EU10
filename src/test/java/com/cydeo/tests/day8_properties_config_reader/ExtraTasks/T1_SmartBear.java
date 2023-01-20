@@ -1,5 +1,6 @@
 package com.cydeo.tests.day8_properties_config_reader.ExtraTasks;
 
+import com.cydeo.utilities.SmartBearUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -59,6 +60,13 @@ public class T1_SmartBear {
         for (WebElement each : allTheLinks) {
             System.out.println("each.getText() = " + each.getText());
         }
+
+    }
+
+    @Test
+    public void login(){
+
+        SmartBearUtils. loginToSmartBear (driver); // This method can be used instead of the steps 2-5 above
 
     }
 
