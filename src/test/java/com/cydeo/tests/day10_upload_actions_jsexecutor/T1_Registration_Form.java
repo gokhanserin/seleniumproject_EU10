@@ -6,6 +6,7 @@ import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class T1_Registration_Form {
@@ -73,11 +74,29 @@ public class T1_Registration_Form {
         departmentDropdown.selectByIndex(faker.number().numberBetween(1,9));
 
         //12. Select Job Title
+
+        Select jobTitleDropdown = new Select(Driver.getDriver().findElement(By.xpath("//select[@name='job_title']")));
+        jobTitleDropdown.selectByIndex(faker.number().numberBetween(1,8));
+
         //13. Select programming language from checkboxes
+
+        WebElement inputProgrammingLanguage = Driver.getDriver().findElement(By.xpath("//input[@id='inlineCheckbox2']"));
+        inputProgrammingLanguage.click();
+
         //14. Click to sign up button
+
+        WebElement signUpButton = Driver.getDriver().findElement(By.xpath("//button[@id='wooden_spoon']"));
+        signUpButton.click();
+
         //15. Verify success message “You’ve successfully completed registration.” is displayed.
 
+        //WebElement successMessage = Driver.getDriver().findElement(By.tagName("p"));
+        //Assert.assertTrue(successMessage.isDisplayed());
 
+        WebElement successMessage = Driver.getDriver().findElement(By.tagName("p"));
+        String actualMessage = successMessage.getText();
+        String expectedMessage = "You’ve successfully completed registration.";
+        Assert.assertEquals(actualMessage, expectedMessage);
 
     }
 
