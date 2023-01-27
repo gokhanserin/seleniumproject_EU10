@@ -60,9 +60,15 @@ Creating a private constructor, so we are closing access to the object of this c
         return driver;
     }
 
-    // driver.quit() --> nosuchsession
-    // driver.close() -->
 
-    // try to create a method named closeDriver
+    /*
+    This method will make sure our driver value is always null after using quit() method
+     */
+    public static void closeDriver(){
+        if (driver!=null){
+            driver.quit(); // this line will terminate the existing session. Value will not even be null.
+            driver = null;
+        }
+    }
 
 }
